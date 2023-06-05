@@ -43,7 +43,7 @@
     
     추가적으로, 전체 데이터 중 이번 과제에서 필요한 섬진강 유역 이미지 지리정보만 크롭하여 활용하기 위해 지상관측소의 위도, 경도 데이터를 참고하여 좌상단, 우하단 (min, max)값 내의 천리안 이미지 지리 정보만을 추출하여 사용합니다. 
     
-    <img src="images/eda_minmax.png"  width="1600" height="90">
+    <img src="images/eda_minmax.png"  width="1600" height="140">
     
 
 <img src="images/cropped_tpw.png"  width="400" height="400">
@@ -64,18 +64,6 @@
     - 기상데이터는 연속적으로 변화하는 데이터 이므로 전/후 데이터가 결측값을 예측하는데에 활용될 수 있다는 가정
     - Linear Interpolation 방법(전/후 데이터의 Mean 값)으로 결측값 대체
 - Outlier는 주변 지역의 데이터의 Min, Max, Mean, Q1, Q3 값을 참고하여 1.5 IQR 이상 차이가 나는 데이터를 기준으로 삭제 처리 하였습니다.
-
-### AI 모델링 과정
-
-- 위 데이터를 활용하여 Pytorch 환경에서 딥러닝 모델을 설계하여 결과를 도출합니다.
-- 기존 발표된 EfficientNet 모델을 참고하여 모델을 생성합니다.
-    - 이미지 학습에 주로 사용되는 ResNet이 있으나, 이보다 더 경량화되고 뛰어난 성능을 보여주어 SOTA를 달성한 EfficientNet을 활용했습니다.
-    - EfficientNet 모델을 기반으로 Fine Tuning 하기 위해 논문을 참고하여  Architecture를 살펴보았으며, Input Size는 모델 고유 최적값인 600, Output Size는 2560으로 설정하였습니다.
-- 
-- Input Data Image Size는 (224, 224) 형식이므로, 이에 맞춰 데이터를 Resize 시킵니다. 이후 torch의 입력형태인 Tensor로 변환 후 Normalize까지 진행합니다.
-- train_test_split라이브러리를 활용하여 dataset을 train(6), test(2), validation(2) data set으로 분리합니다.
-- num_epochs(100), loss function(CrossEntropyLoss), optimizer(Adam), learning rate(0.01) 등의 hyper-parameter 설정 후 학습을 진행합니다.
-- 시강수량에 대한 예측값을 도출하고, 실제 측정값과 비교하여 최종 평가기준에 따라 RMSE 평가를 수행합니다.
 
 ### 결과
 
