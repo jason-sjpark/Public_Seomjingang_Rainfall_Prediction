@@ -43,7 +43,7 @@
     
     추가적으로, 전체 데이터 중 이번 과제에서 필요한 섬진강 유역 이미지 지리정보만 크롭하여 활용하기 위해 지상관측소의 위도, 경도 데이터를 참고하여 좌상단, 우하단 (min, max)값 내의 천리안 이미지 지리 정보만을 추출하여 사용합니다. 
     
-    <img src="images/eda_minmax.png"  width="1200" height="100">
+    <img src="images/eda_minmax.png"  width="1200" height="140">
     
 
 <img src="images/cropped_tpw.png"  width="400" height="400">
