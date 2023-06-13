@@ -1,4 +1,4 @@
-# Seomjingang_rainfall_prediction
+# Seomjingang_Rainfall_Prediction
 섬진강 유역 강우량 예측 모델
 
 ### 팀 구성 및 역할
